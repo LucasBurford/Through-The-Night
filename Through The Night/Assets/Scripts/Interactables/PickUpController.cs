@@ -38,18 +38,23 @@ public class PickUpController : MonoBehaviour
     private void Update()
     {
         // Check if player is in range and presses E
-        Vector3 distanceToPlayer = player.position - transform.position;
+        //Vector3 distanceToPlayer = player.position - transform.position;
 
-        if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
-        {
-            Pickup();
-        }
+        //if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
+        //{
+        //    Pickup();
+        //}
 
         // Drop is pressed Q
         if (equipped && Input.GetKeyDown(KeyCode.Q))
         {
             Drop();
         }
+    }
+
+    public void OnInteract()
+    {
+        Pickup();
     }
 
     private void Pickup()
