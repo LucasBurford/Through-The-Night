@@ -9,6 +9,7 @@ public class ParkingSpeaker : MonoBehaviour
     public void OnInteract()
     {
         animator.SetBool("Open", true);
+        StartCoroutine(Wait());
     }
 
     IEnumerator Wait()
