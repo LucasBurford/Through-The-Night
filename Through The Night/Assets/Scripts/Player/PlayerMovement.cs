@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Transform groundCheck;
     public LayerMask groundMask;
+    public AudioSource walkAudio;
 
     public Vector3 velocity;
 
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public float gravity;
     public float groundDistance;
+    public bool isPlayerMoving;
+    public bool isWalkAudioPlaying;
 
     bool isGrounded;
 
@@ -40,6 +43,27 @@ public class PlayerMovement : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime;
+
+        if (move.magnitude != 0)
+        {
+            isPlayerMoving = true;
+        }
+        else
+        {
+            isPlayerMoving = false;
+        }
+
+        if (isPlayerMoving)
+        {
+            if (!walkAudio.isPlaying && isGrounded)
+            {
+                walkAudio.Play();
+            }
+        }
+        else
+        {
+            walkAudio.Stop();
+        }
 
         controller.Move(velocity * Time.deltaTime);
     }

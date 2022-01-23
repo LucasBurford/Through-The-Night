@@ -59,6 +59,8 @@ public class PickUpController : MonoBehaviour
 
     private void Pickup()
     {
+        FindObjectOfType<ItemAcquired>().AcquiredItem("Flashlight", "R");
+
         equipped = true;
         slotFull = true;
 

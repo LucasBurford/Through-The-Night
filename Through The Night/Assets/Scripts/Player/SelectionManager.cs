@@ -28,7 +28,7 @@ public class SelectionManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxRayDistance, selectableLayer))
         {
             interactText.gameObject.SetActive(true);
-            interactText.text = "Interact?";
+            interactText.text = "E Interact?";
 
             CheckInput(hit.collider.gameObject);
 
